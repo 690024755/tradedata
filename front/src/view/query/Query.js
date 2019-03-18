@@ -1,0 +1,1 @@
+import User from "./User";var React = require('react');var ReactDOM = require('react-dom');ReactDOM.render (    <div>       <User />    </div>,    document.getElementById("query"));

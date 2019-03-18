@@ -1,0 +1,1 @@
+var React = require('react');var ReactDOM = require('react-dom');ReactDOM.render (     <h1>balances.js------Hello, World</h1>,    document.getElementById("balances"));
