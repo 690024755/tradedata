@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<!--  mvn mybatis-generator:generate-->
+<generatorConfiguration>
+    <!--<properties resource="src/main/resources/conf/local/local.properties"/>-->
+
+
+    <context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+        <property name="javaFileEncoding" value="UTF-8"/>
+        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+            <property name="mappers" value="com.sxc.starter.mybatis.mapper.MyMapper"/>
+        </plugin>
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://rm-bp1enc0yrzt3zu60do.mysql.rds.aliyuncs.com:3306/sxc_ic?characterEncoding=utf8"
+                        userId="sxc_test"
+                        password="Songxiaocai2015"/>
+
+        <javaModelGenerator targetPackage="com.sxc.demo.sku.infrastructure.repository.po"   targetProject="src/main/java"/>
+
+        <sqlMapGenerator targetPackage="sku_mapper" targetProject="src/main/resources"/>
+
+        <javaClientGenerator targetPackage="com.sxc.demo.sku.infrastructure.repository.mapper" targetProject="src/main/java" type="XMLMAPPER"/>
+
+        <table tableName="sxc_item_sku" domainObjectName="ItemSku">
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+    </context>
+</generatorConfiguration>

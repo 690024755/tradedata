@@ -8,5 +8,8 @@
 	<typeAliases>
 		<typeAlias type="com.songxiaocai.tradedata.infrastructure.repository.entity.SxcUser" alias="SxcUser"/>
 		<typeAlias type="com.songxiaocai.tradedata.infrastructure.repository.entity.SxcAccount" alias="SxcAccount"/>
+		<typeAlias type="com.songxiaocai.tradedata.infrastructure.repository.entity.SxcStorehouse" alias="SxcStorehouse"/>
+		<typeAlias type="com.songxiaocai.tradedata.infrastructure.repository.entity.SxcItemSku" alias="SxcItemSku"/>
+		<typeAlias type="com.songxiaocai.tradedata.infrastructure.repository.entity.SxcBuyer" alias="SxcBuyer"/>
 	</typeAliases>
 </configuration>
