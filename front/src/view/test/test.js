@@ -1,0 +1,1 @@
+import React, {Component} from 'react';import ReactDOM  from 'react-dom';import Gateway  from '../gateway/Gateway';export default class Test extends React.Component{    render(){        return (            <Gateway />        );    };}ReactDOM.render (    <Test />,    document.getElementById("test"));
