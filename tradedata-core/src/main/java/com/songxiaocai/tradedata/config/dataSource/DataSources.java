@@ -1,0 +1,1 @@
+package com.songxiaocai.tradedata.config.dataSource;/* * Description:com.songxiaocai.tradedata.config.dataSource * @Date Create on 10:56 * @author <a href="mailto:yangyi@songxiaocai.com">yangyi</a> * @Version JDK 1.8 * @since version 1.0 Copyright 2019-04-03日SXC All Rights Reserved. *//*用于配置多数据源,定义一个enum来表示不同的数据源 */public enum DataSources {	testProd, dev}

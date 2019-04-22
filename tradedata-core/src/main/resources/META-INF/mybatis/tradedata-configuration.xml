@@ -11,5 +11,8 @@
 		<typeAlias type="com.songxiaocai.tradedata.infrastructure.repository.entity.SxcStorehouse" alias="SxcStorehouse"/>
 		<typeAlias type="com.songxiaocai.tradedata.infrastructure.repository.entity.SxcItemSku" alias="SxcItemSku"/>
 		<typeAlias type="com.songxiaocai.tradedata.infrastructure.repository.entity.SxcBuyer" alias="SxcBuyer"/>
+		<typeAlias type="com.songxiaocai.tradedata.infrastructure.repository.entity.SxcGatewayApi" alias="SxcGatewayApi"/>
+		<typeAlias type="com.songxiaocai.tradedata.infrastructure.repository.entity.SxcFixPriceBaseInfo" alias="SxcFixPriceBaseInfo"/>
+		<typeAlias type="com.songxiaocai.tradedata.infrastructure.repository.entity.SxcOrder" alias="SxcOrder"/>
 	</typeAliases>
 </configuration>
