@@ -17,7 +17,7 @@
 		<property name="locations">
 			<list>
 				<value>classpath:jdbc.properties</value>
-				<!--<value>classpath:log4j.properties</value>-->
+				<value>classpath:dubbo.properties</value>
 			</list>
 		</property>
 	</bean>
@@ -33,6 +33,7 @@
 
     <!-- 容器自动扫描IOC组件  -->
     <context:component-scan base-package="com.songxiaocai.tradedata" />
+
 
     <!-- aspectj支持自动代理实现AOP功能 -->
     <aop:aspectj-autoproxy proxy-target-class="true"></aop:aspectj-autoproxy>
