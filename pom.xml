@@ -251,6 +251,86 @@
         <artifactId>interaction-notify-dubbo-client</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </dependency>
+    <dependency>
+        <groupId>com.sxc.supplychain</groupId>
+        <artifactId>coldstorage-service-client</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+        <groupId>com.sxc.supplychain</groupId>
+        <artifactId>finance-service-client</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+        <groupId>com.sxc.supplychain</groupId>
+        <artifactId>logistics-service-client</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+        <groupId>com.sxc.supplychain</groupId>
+        <artifactId>purchase-client</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+        <groupId>com.sxc.supplychain</groupId>
+        <artifactId>request-payout-client</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+        <groupId>com.sxc.supplychain</groupId>
+        <artifactId>store-service-client</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+        <groupId>com.sxc.supplychain</groupId>
+        <artifactId>wms-service-client</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+        <groupId>com.sxc.supplychain</groupId>
+        <artifactId>workbench-service-client</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+        <groupId>com.sxc.jotunheim</groupId>
+        <artifactId>expense-client</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+        <groupId>com.sxc.jotunheim</groupId>
+        <artifactId>freight-client</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+        <groupId>com.sxc.jotunheim</groupId>
+        <artifactId>order-client</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+        <groupId>com.sxc.jotunheim</groupId>
+        <artifactId>storehouse-client</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+        <groupId>com.sxc.jotunheim</groupId>
+        <artifactId>supplier-settle-client</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+        <groupId>com.sxc.jotunheim</groupId>
+        <artifactId>trade-client</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+        <groupId> com.sxc.jothuheim</groupId>
+        <artifactId>acp-base-client</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+        <groupId> com.sxc.jothuheim</groupId>
+        <artifactId>finance-client</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </dependency>
 
     <dependency>
         <groupId>com.sxc.svartalfheim</groupId>
@@ -273,13 +353,22 @@
         <artifactId>supplychain-common-client</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </dependency>
-
     <dependency>
-        <groupId>com.sxc.jotunheim</groupId>
-        <artifactId>trade-client</artifactId>
+        <groupId>com.sxc.svartalfheim</groupId>
+        <artifactId>interaction-task-service-client</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+        <exclusions>
+            <exclusion>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-feign</artifactId>
+            </exclusion>
+        </exclusions>
+    </dependency>
+    <dependency>
+        <groupId>com.sxc.svartalfheim</groupId>
+        <artifactId>interaction-ticketsystem-service-client</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </dependency>
-
 
     <dependency>
         <groupId>com.sxc.gateway</groupId>
@@ -292,15 +381,40 @@
         <version>1.0.0-SNAPSHOT</version>
     </dependency>
     <dependency>
+        <groupId>com.sxc.svartalfheim</groupId>
+        <artifactId>interaction-circles-service-client</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+        <groupId>com.sxc.jotunheim</groupId>
+        <artifactId>price-service-client</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+        <groupId>com.sxc.jotunheim</groupId>
+        <artifactId>stock-service-client</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+        <groupId>com.sxc.jotunheim</groupId>
+        <artifactId>price-biz-client</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
         <groupId>com.sxc.jotunheim</groupId>
         <artifactId>logistic-client</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+        <groupId>com.sxc.svartalfheim</groupId>
+        <artifactId>organization-client</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </dependency>
 
     <dependency>
         <groupId>com.sxc</groupId>
         <artifactId>dubbo-router-client</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>1.1.0-SNAPSHOT</version>
     </dependency>
 
 
