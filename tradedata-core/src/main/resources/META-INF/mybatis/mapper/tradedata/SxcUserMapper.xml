@@ -35,9 +35,6 @@
         state,area_code,push_id,pickhose_id,create_time,city_code,login_name,update_time,
         id_card,images,is_valid,feature,pickhose_ids,survey_user_id,user_level,user_mature
 	</sql>
-
-
-
   <sql id="Base_Where_Clause">
     <where>
       <trim prefixOverrides="and">
@@ -62,13 +59,16 @@
       </trim>
     </where>
   </sql>
-
-
-    <select id="getByMobilePhone" resultMap="SxcUserResultMap" parameterType = "java.lang.String">
+    <select id="getByMobilePhone" resultMap="SxcUserResultMap" parameterType="HashMap">
         select <include refid="columns" /> from
          <include refid="tableName" />
-        where mobile_phone=#{mobilePhone,jdbcType = VARCHAR} and state=1
+        where
+        mobile_phone=#{mobilePhone,jdbcType = VARCHAR} and state=1 and user_type=#{userType}
     </select>
-
-
+    <update id="updatePassword" parameterType="java.util.List">
+        <foreach collection="list" item="item" index="index" separator=";">
+            update <include refid="tableName" /> set password = #{item.password}
+            where mobile_phone=#{item.mobilePhone} and user_type=#{item.userType}
+        </foreach>
+    </update>
 </mapper>

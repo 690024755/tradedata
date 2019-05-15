@@ -224,8 +224,6 @@
         <version>2.9.4</version>
     </dependency>
 
-
-    <!-- songxiaocai-->
     <dependency>
     <groupId>com.sxc.micro</groupId>
     <artifactId>micro-service-common</artifactId>
@@ -410,20 +408,17 @@
         <artifactId>organization-client</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </dependency>
-
     <dependency>
         <groupId>com.sxc</groupId>
         <artifactId>dubbo-router-client</artifactId>
         <version>1.1.0-SNAPSHOT</version>
     </dependency>
 
-
 </dependencies>
 
     <build>
         <finalName>tradedata</finalName>
         <plugins>
-            <!-- 指定 JDK 版本. -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -434,7 +429,6 @@
                     <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
-            <!-- 构建时 jar 的附带源码. -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
@@ -449,7 +443,6 @@
                     </execution>
                 </executions>
             </plugin>
-            <!-- 打包时不进行 junit 测试. -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>

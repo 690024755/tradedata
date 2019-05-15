@@ -10,9 +10,4 @@
 	  <scope>application</scope> 
 	  <class>org.apache.velocity.tools.generic.MathTool</class> 
 	 </tool>
-	  <!--<tool> -->
-	      <!--<key>propTool</key> -->
-	      <!--<scope>application</scope> -->
-	      <!--<class>com.zzjr.commons.util.web.PropertiesUtils</class> -->
-	 <!--</tool> -->
-</toolbox> 
+</toolbox>

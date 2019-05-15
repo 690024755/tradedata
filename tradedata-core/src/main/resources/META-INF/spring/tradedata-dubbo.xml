@@ -12,21 +12,11 @@
    	http://www.springframework.org/schema/jee/spring-jee-4.3.xsd
    	http://www.springframework.org/schema/tx
    	http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
-    http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd"
+   	http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd"
 	default-lazy-init="true" default-autowire="byName">
     <dubbo:application name="tradedata" />
     <dubbo:registry  protocol="zookeeper" address="218.244.135.116:2181" />
     <dubbo:annotation package="com.sxc." />
-    <!--<dubbo:reference id="routerProvider" interface="com.sxc.dubbo.router.client.RouterProvider" group="HSF" version="1.0.0.test"/>-->
-    <!--<bean id="routerBeanPostProcessor" class="com.sxc.dubbo.router.client.RouterBeanPostProcessor" >-->
-        <!--<constructor-arg index="0" ref="routerProvider"/>-->
-        <!--<constructor-arg index="1" value="HSF"/>-->
-        <!--<constructor-arg index="2" value="1.0.0.test"/>&lt;!&ndash; 需要调用provider的版本号&ndash;&gt;-->
-        <!--<constructor-arg index="3" value="true"/>-->
-    <!--</bean>-->
-    <!--<dubbo:consumer  version="1.0.0.test" group="HSF"/>-->
-
     <dubbo:consumer version="1.0.0.test" group="HSF"/>
     <bean id="dubboRouterAutoConfiguration" class="com.sxc.dubbo.router.autoconfigure.DubboRouterAutoConfiguration"/>
-
 </beans>

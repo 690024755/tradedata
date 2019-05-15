@@ -11,8 +11,8 @@
       <result column="subsidy_balance" property="subsidyBalance" jdbcType="BIGINT" />
       <result column="cash_balance" property="cashBalance" jdbcType="BIGINT" />
       <result column="base_cash_balance" property="baseCashBalance" jdbcType="BIGINT" />
-
   </resultMap>
+
     <sql id="tableName">
 		sxc.sxc_account
 	</sql>
@@ -31,8 +31,10 @@
 
 
     <update id="updateBalance" parameterType="HashMap" >
-        update <include refid="tableName" /> set balance=balance+#{balance},
-        cash_balance=cash_balance+#{cashBalance} where user_id=#{userId}
+        update <include refid="tableName" /> set balance=#{balance},
+        cash_balance=#{cashBalance},subsidy_balance=#{subsidyBalance}
+         ,base_cash_balance=#{baseCashBalance}
+         where user_id=#{userId}
     </update>
 
 </mapper>

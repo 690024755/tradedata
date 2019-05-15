@@ -32,11 +32,9 @@
     <result column="features" jdbcType="VARCHAR" property="features" />
     <result column="city_code" jdbcType="INTEGER" property="cityCode" />
   </resultMap>
-
     <sql id="tableName">
 		sxc_oc.sxc_order
 	</sql>
-
   <sql id="columns">
     order_no, num, total_fee, buyer_id, buyer_name, seller_id, seller_name, pay_type, 
     order_status, create_time, state, operator_user_id, area_code, pickhouse_id, centerhouse_id, 
@@ -44,25 +42,20 @@
     delivery_status, sell_status, cash_back, cash_back_time, is_cash_back, order_type, features,
     city_code
   </sql>
-
     <select id="getByBuyerId" resultMap="SxcOrderResultMap" parameterType = "INTEGER">
         select <include refid="columns" /> from
         <include refid="tableName" />
         where buyer_id=#{buyerId,jdbcType = INTEGER} and state=1
     </select>
-
     <update id="modifyStatee" parameterType = "HashMap">
         UPDATE <include refid="tableName" /> set state=#{state}  where buyer_id=#{buyerId} and state=1
     </update>
-
     <update id="updateBatch" parameterType="java.util.List">
     <foreach collection="list" item="item" index="index" separator=";">
     update <include refid="tableName" /> set
         state = #{item.state} where order_no=#{item.orderNo}
     </foreach>
     </update>
-
-    <!--一次插入一条-->
     <insert id="insertBatch" parameterType="java.util.List">
         <foreach collection="list" item="item" index="index" separator=";">
             insert <include refid="tableName" />
@@ -71,8 +64,6 @@
             )
         </foreach>
     </insert>
-
-    <!--一次插入多条sql-->
     <insert id="insertOneBatch" parameterType="java.util.List">
 
             insert <include refid="tableName" />
@@ -82,6 +73,4 @@
             )
         </foreach>
     </insert>
-
-
 </mapper>

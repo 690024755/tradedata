@@ -2,9 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.songxiaocai.tradedata.infrastructure.repository.mapper.SxcItemSkuMapper">
   <resultMap id="SxcItemSkuResultMap" type="com.songxiaocai.tradedata.infrastructure.repository.entity.SxcItemSku">
-    <!--
-      WARNING - @mbg.generated
-    -->
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="spu_id" jdbcType="INTEGER" property="spuId" />
     <result column="sell_city" jdbcType="VARCHAR" property="sellCity" />
@@ -38,30 +35,22 @@
     <result column="channel_id" jdbcType="INTEGER" property="channelId" />
     <result column="channel_name" jdbcType="VARCHAR" property="channelName" />
   </resultMap>
-
-
     <sql id="tableName">
 		sxc_ic.sxc_item_sku
 	</sql>
-
     <sql id="columns">
 	    id,spu_id,sell_city,status,price,state,gmt_create,gmt_modified,
         estimate_stock,sold_stock,limit_per,is_relation_sale,city_code,features,packaging_type,item_area,
         cat_id,local_title,item_unit,product_weight,grade,item_species,spu_name,shipping_cost,
         version,lock_status,item_type,properties,prod_area_code,stock_sku_id,channel_id,channel_name
 	</sql>
-
-
     <select id="getByItemId" resultMap="SxcItemSkuResultMap" parameterType = "INTEGER">
         select <include refid="columns" /> from
         <include refid="tableName" />
         where id=#{id,jdbcType = INTEGER} and state=1
     </select>
-
     <update id="modifyCutffTime" parameterType = "HashMap">
         UPDATE <include refid="tableName" /> set features=#{features}  where id=#{ItemId}
         and state=1
     </update>
-
-
 </mapper>

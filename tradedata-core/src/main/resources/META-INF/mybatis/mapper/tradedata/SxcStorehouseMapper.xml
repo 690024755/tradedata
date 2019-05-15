@@ -2,9 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.songxiaocai.tradedata.infrastructure.repository.mapper.SxcStorehouseMapper">
   <resultMap id="SxcStorehouseResultMap" type="com.songxiaocai.tradedata.infrastructure.repository.entity.SxcStorehouse">
-    <!--
-      WARNING - @mbg.generated
-    -->
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="address" jdbcType="VARCHAR" property="address" />
@@ -39,7 +36,6 @@
     <result column="location_city_code" jdbcType="INTEGER" property="locationCityCode" />
     <result column="coordinate" jdbcType="VARCHAR" property="coordinate" />
   </resultMap>
-
     <sql id="tableName">
 		sxc.sxc_storehouse
 	</sql>
@@ -52,17 +48,13 @@
         is_trust_handover,auto_check_returned_flag,auto_return_package,organization_zone_id,require_start_time,
         require_end_time,location_province_code,location_area_code,location_city_code,coordinate
 	</sql>
-
     <select id="getById" resultMap="SxcStorehouseResultMap" parameterType = "INTEGER">
         select <include refid="columns" /> from
         <include refid="tableName" />
         where id=#{id,jdbcType = INTEGER} and state=1
     </select>
-
-
     <update id="modifyCutffTime" parameterType = "HashMap">
      UPDATE <include refid="tableName" /> set cutoff_time=#{cutOffTime}  where id=#{id}
      and state=1
    </update>
-
 </mapper>
