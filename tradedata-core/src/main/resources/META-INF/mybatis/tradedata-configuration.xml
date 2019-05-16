@@ -14,5 +14,7 @@
 		<typeAlias type="com.songxiaocai.tradedata.infrastructure.repository.entity.SxcFixPriceBaseInfo" alias="SxcFixPriceBaseInfo"/>
 		<typeAlias type="com.songxiaocai.tradedata.infrastructure.repository.entity.SxcOrder" alias="SxcOrder"/>
 		<typeAlias type="com.songxiaocai.tradedata.infrastructure.repository.entity.SxcFixPriceRule" alias="SxcFixPriceRule"/>
-	</typeAliases>
+        <typeAlias type="com.songxiaocai.tradedata.infrastructure.repository.entity.SxcFreightRuleMap" alias="SxcFreightRuleMap"/>
+
+    </typeAliases>
 </configuration>
