@@ -41,7 +41,7 @@
 	</sql>
     <sql id="columns">
 		id,name,address,phone,create_time,state,manager,house_type,
-        state,area_code,push_id,pickhose_id,create_time,city_code,login_name,update_time,
+        state,area_code,pickhose_id,create_time,city_code,login_name,update_time,
         id_card,images,is_valid,feature,pickhose_ids,survey_user_id,user_level,user_mature,
         area_code,complaint_phone,city_code,city_name,update_time,password,market_type,market_attribute,
         survey_market_id,sale_time,cutoff_time,peak_hour,status,arrive_need_start_time,arrive_need_end_time,
