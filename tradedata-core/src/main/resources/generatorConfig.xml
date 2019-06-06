@@ -28,5 +28,4 @@
     <javaClientGenerator type="XMLMAPPER" targetPackage="com.songxiaocai.tradedata.infrastructure.repository.mapper" targetProject="src/main/java">
         <property name="enableSubPackages" value="true"/>
     </javaClientGenerator>
-    </context>
 </generatorConfiguration>
