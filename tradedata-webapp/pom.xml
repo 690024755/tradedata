@@ -16,119 +16,126 @@
             <artifactId>tradedata-core</artifactId>
             <version>${tradedata.version}</version>
         </dependency>
+
     </dependencies>
+
     <build>
         <finalName>tradedata-webapp</finalName>
-        <extensions>
-            <extension>
-                <groupId>org.apache.maven.wagon</groupId>
-                <artifactId>wagon-ssh</artifactId>
-                <version>3.3.2</version>
-            </extension>
-        </extensions>
-        <plugins>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>wagon-maven-plugin</artifactId>
-                <version>2.0.0</version>
-                <executions>
-                    <execution>
-                        <phase>deploy</phase>
-                        <goals>
-                            <goal>sshexec</goal>
-                        </goals>
-                        <configuration>
-                            <serverId>middleware_server_01</serverId>
-                            <url>47.98.207.202</url>
-                            <commands>
-                                <command>sh /home/admin/tomcat/kill.sh</command>
-                                <command>rm -rf /home/admin/tomcat/webapps/*</command>
-                                <command>rm -rf /home/admin/tomcat/front/*</command>
-                            </commands>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>upload-deploy-tradedata</id>
-                        <phase>deploy</phase>
-                        <goals>
-                            <goal>upload-single</goal>
-                            <goal>sshexec</goal>
-                        </goals>
-                        <configuration>
-                            <serverId>middleware_server_01</serverId>
-                            <fromFile>${basedir}/target/tradedata-webapp.war</fromFile>
-                            <url>scp://47.98.207.202/home/admin/tomcat/webapps</url>
-                            <commands>
-                                <command>mv /home/admin/tomcat/webapps/tradedata-webapp.war /home/admin/tomcat/webapps/ROOT.war</command>
-                                <command>sh /home/admin/tomcat/bin/startup.sh</command>
-                            </commands>
-                            <displayCommandOutputs>true</displayCommandOutputs>
+        <!--<extensions>-->
+            <!--<extension>-->
+                <!--<groupId>org.apache.maven.wagon</groupId>-->
+                <!--<artifactId>wagon-ssh</artifactId>-->
+                <!--<version>3.3.2</version>-->
+            <!--</extension>-->
+        <!--</extensions>-->
+        <!--<plugins>-->
+            <!--<plugin>-->
+                <!--<groupId>org.codehaus.mojo</groupId>-->
+                <!--<artifactId>wagon-maven-plugin</artifactId>-->
+                <!--<version>2.0.0</version>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<phase>deploy</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>sshexec</goal>-->
+                        <!--</goals>-->
+                        <!--<configuration>-->
+                            <!--<serverId>middleware_server_01</serverId>-->
+                            <!--<url>47.98.207.202</url>-->
+                            <!--<commands>-->
+                                <!--<command>sh /home/admin/tomcat/kill.sh</command>-->
+                                <!--<command>rm -rf /home/admin/tomcat/webapps/*</command>-->
+                                <!--<command>rm -rf /home/admin/tomcat/front/*</command>-->
+                            <!--</commands>-->
+                        <!--</configuration>-->
+                    <!--</execution>-->
+                    <!--<execution>-->
+                        <!--<id>upload-deploy-tradedata</id>-->
+                        <!--&lt;!&ndash; 运行package打包的同时运行upload-single和sshexec &ndash;&gt;-->
+                        <!--<phase>deploy</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>upload-single</goal>-->
+                            <!--<goal>sshexec</goal>-->
+                        <!--</goals>-->
+                        <!--<configuration>-->
+                            <!--<serverId>middleware_server_01</serverId>-->
+                            <!--<fromFile>${basedir}/target/tradedata-webapp.war</fromFile>-->
+                            <!--<url>scp://47.98.207.202/home/admin/tomcat/webapps</url>-->
+                            <!--<commands>-->
+                                <!--<command>mv /home/admin/tomcat/webapps/tradedata-webapp.war /home/admin/tomcat/webapps/ROOT.war</command>-->
+                                <!--<command>sh /home/admin/tomcat/bin/startup.sh</command>-->
+                            <!--</commands>-->
+                            <!--<displayCommandOutputs>true</displayCommandOutputs>-->
 
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>upload-deploy-front</id>
-                        <phase>deploy</phase>
-                        <goals>
-                            <goal>upload-single</goal>
-                            <goal>sshexec</goal>
-                        </goals>
-                        <configuration>
-                            <serverId>middleware_server_01</serverId>
-                            <fromFile>${project.basedir}/../front/dist.zip</fromFile>
-                            <url>scp://47.98.207.202/home/admin/tomcat/front</url>
-                            <commands>
-                                <command>unzip -d /home/admin/tomcat/front /home/admin/tomcat/front/dist.zip</command>
-                            </commands>
-                            <displayCommandOutputs>true</displayCommandOutputs>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-deploy-plugin</artifactId>
-                <version>3.0.0-M1</version>
-                <configuration>
-                    <skip>true</skip>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>1.6.0</version>
-                <executions>
-                    <execution>
-                        <id>exec-npm-install</id>
-                        <phase>install</phase>
-                        <goals>
-                            <goal>exec</goal>
-                        </goals>
-                        <configuration>
-                            <executable>npm</executable>
-                            <arguments>
-                                <argument>install</argument>
-                            </arguments>
-                            <workingDirectory>${project.basedir}/../front/</workingDirectory>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>exec-npm-run-build</id>
-                        <phase>install</phase>
-                        <goals>
-                            <goal>exec</goal>
-                        </goals>
-                        <configuration>
-                            <executable>npm</executable>
-                            <arguments>
-                                <argument>run</argument>
-                                <argument>build:testProd</argument>
-                            </arguments>
-                            <workingDirectory>${project.basedir}/../front/</workingDirectory>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
+                        <!--</configuration>-->
+                    <!--</execution>-->
+                    <!--&lt;!&ndash;上传front静态资源&ndash;&gt;-->
+                    <!--<execution>-->
+                        <!--<id>upload-deploy-front</id>-->
+                        <!--<phase>deploy</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>upload-single</goal>-->
+                            <!--<goal>sshexec</goal>-->
+                        <!--</goals>-->
+                        <!--<configuration>-->
+                            <!--<serverId>middleware_server_01</serverId>-->
+                            <!--<fromFile>${project.basedir}/../front/dist.zip</fromFile>-->
+                            <!--<url>scp://47.98.207.202/home/admin/tomcat/front</url>-->
+                            <!--<commands>-->
+                                <!--<command>unzip -d /home/admin/tomcat/front /home/admin/tomcat/front/dist.zip</command>-->
+                            <!--</commands>-->
+                            <!--<displayCommandOutputs>true</displayCommandOutputs>-->
+                        <!--</configuration>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-deploy-plugin</artifactId>-->
+                <!--<version>3.0.0-M1</version>-->
+                <!--<configuration>-->
+                    <!--<skip>true</skip>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+            <!--&lt;!&ndash;执行npm打包命令&ndash;&gt;-->
+            <!--<plugin>-->
+                <!--<groupId>org.codehaus.mojo</groupId>-->
+                <!--<artifactId>exec-maven-plugin</artifactId>-->
+                <!--<version>1.6.0</version>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<id>exec-npm-install</id>-->
+                        <!--<phase>install</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>exec</goal>-->
+                        <!--</goals>-->
+                        <!--<configuration>-->
+                            <!--<executable>npm</executable>-->
+                            <!--<arguments>-->
+                                <!--<argument>install</argument>-->
+                            <!--</arguments>-->
+                            <!--<workingDirectory>${project.basedir}/../front/</workingDirectory>-->
+                        <!--</configuration>-->
+                    <!--</execution>-->
+                    <!--<execution>-->
+                        <!--<id>exec-npm-run-build</id>-->
+                        <!--<phase>install</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>exec</goal>-->
+                        <!--</goals>-->
+                        <!--<configuration>-->
+                            <!--<executable>npm</executable>-->
+                            <!--<arguments>-->
+                                <!--<argument>run</argument>-->
+                                <!--<argument>build:testProd</argument>-->
+                            <!--</arguments>-->
+                            <!--<workingDirectory>${project.basedir}/../front/</workingDirectory>-->
+                        <!--</configuration>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
+
+        <!--</plugins>-->
     </build>
+
 </project>

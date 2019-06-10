@@ -4,6 +4,7 @@
 	<settings>
 		<setting name="cacheEnabled" value="false" />
 	</settings>
+
 	<typeAliases>
 		<typeAlias type="com.songxiaocai.tradedata.infrastructure.repository.entity.SxcUser" alias="SxcUser"/>
 		<typeAlias type="com.songxiaocai.tradedata.infrastructure.repository.entity.SxcAccount" alias="SxcAccount"/>
@@ -15,8 +16,9 @@
 		<typeAlias type="com.songxiaocai.tradedata.infrastructure.repository.entity.SxcOrder" alias="SxcOrder"/>
 		<typeAlias type="com.songxiaocai.tradedata.infrastructure.repository.entity.SxcFixPriceRule" alias="SxcFixPriceRule"/>
         <typeAlias type="com.songxiaocai.tradedata.infrastructure.repository.entity.SxcFreightRuleMap" alias="SxcFreightRuleMap"/>
+        <typeAlias type="com.songxiaocai.tradedata.infrastructure.repository.entity.SxcFreightRuleMap" alias="SxcFreightRuleMap"/>
         <typeAlias type="com.songxiaocai.tradedata.infrastructure.repository.entity.SxcGoodsGroupRelation" alias="SxcGoodsGroupRelation"/>
         <typeAlias type="com.songxiaocai.tradedata.infrastructure.repository.entity.SxcServiceRule" alias="SxcServiceRule"/>
 
-    </typeAliases>
+	</typeAliases>
 </configuration>

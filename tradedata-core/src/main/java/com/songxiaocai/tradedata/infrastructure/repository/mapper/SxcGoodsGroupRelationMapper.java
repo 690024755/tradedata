@@ -2,8 +2,9 @@ package com.songxiaocai.tradedata.infrastructure.repository.mapper;
 
 import com.songxiaocai.tradedata.infrastructure.repository.entity.SxcGoodsGroupRelation;
 import com.songxiaocai.tradedata.infrastructure.repository.entity.example.SxcGoodsGroupRelationExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface SxcGoodsGroupRelationMapper {
     int insert(SxcGoodsGroupRelation record);
