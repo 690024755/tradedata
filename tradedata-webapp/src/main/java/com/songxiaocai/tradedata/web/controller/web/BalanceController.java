@@ -73,9 +73,9 @@ public class BalanceController {
 	//=============测试full gc============
 
 			ArrayList<String> list=new ArrayList();
-      if(cashAmount.equals("1")){
-			log.info("正常的一次请求");
-			}
+     		 if(cashAmount.equals("1")){
+				log.info("正常的一次请求");
+				}
 			//增加堆内存空间大小
 			else if(cashAmount.equals("1")){
 				for(int i=0;i<1000000;i++){
