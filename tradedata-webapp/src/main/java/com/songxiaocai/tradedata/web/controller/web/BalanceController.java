@@ -77,19 +77,19 @@ public class BalanceController {
 				log.info("正常的一次请求");
 				}
 			//增加堆内存空间大小
-			else if(cashAmount.equals("1")){
+			else if(cashAmount.equals("2")){
 				for(int i=0;i<1000000;i++){
 					list.add(i+"中新网6月25日电 辽宁省大连市公安局官方微博25日发布通报称，近日网传“女子半夜遭到殴打”视频，经大连市警方核实，系2019年6月22日凌晨1时许，发生在甘井子公安分局华东路派出所辖区的一起警情。经医院诊断，被害人吴某脸部软组织挫伤，经治疗目前已出院");
 				}
 				log.info("堆增加大小="+list.size());
-			}else if(cashAmount.equals("2")){
+			}else if(cashAmount.equals("3")){
 				for(int i=0;i<2000000;i++){
 					list.add(i+"中新网6月25日电 辽宁省大连市公安局官方微博25日发布通报称，近日网传“女子半夜遭到殴打”视频，经大连市警方核实，系2019年6月22日凌晨1时许，发生在甘井子公安分局华东路派出所辖区的一起警情。经医院诊断，被害人吴某脸部软组织挫伤，经治疗目前已出院");
 				}
 				log.info("堆增加大小="+list.size()+"堆溢出");
 			}
 			//执行手动full gc
-			else if(cashAmount.equals("3")){
+			else if(cashAmount.equals("4")){
 				log.info("=========执行一次full gc=========,cashAmount="+cashAmount);
 				System.gc();
 			}
